@@ -28,6 +28,7 @@ from . import (
     tasks,
     ui,
     edit,
+    auto_version
 )
 
 
@@ -53,6 +54,7 @@ _need_reload = "props" in locals()
 if _need_reload:
     import importlib
 
+    auto_version = importlib.reload(auto_version)
     lookdev.reload()
     bkglobals = importlib.reload(bkglobals)
     cache = importlib.reload(cache)
@@ -71,9 +73,10 @@ if _need_reload:
     tasks.reload()
     anim.reload()
     edit.reload()
-
+    
 
 def register():
+    auto_version.register()
     lookdev.register()
     prefs.register()
     cache.register()
@@ -94,6 +97,7 @@ def register():
 
 
 def unregister():
+    auto_version.unregister()
     anim.unregister()
     # tasks.unregister()
     context.unregister()
