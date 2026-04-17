@@ -1,0 +1,26 @@
+schema_version = "1.0.0"
+
+id = "blender_kitsu"
+version = "0.1.6"
+name = "Blender Kitsu"
+tagline = "Blender integration with the Kitsu production tracker system"
+maintainer = "Blender Studio"
+type = "add-on"
+website = "https://studio.blender.org/tools/addons/blender_kitsu"
+tags = ["Pipeline"]
+
+blender_version_min = "5.0.0"
+
+license = [
+  "SPDX:GPL-3.0-or-later",
+]
+copyright = [
+  "2019-2025 Paul Golter & Blender Studio",
+]
+
+wheels = [
+ "./wheels/bidict-0.22.1-py3-none-any.whl",
+ "./wheels/gazu-0.9.4-py2.py3-none-any.whl",
+ "./wheels/python_engineio-4.5.1-py3-none-any.whl",
+ "./wheels/python_socketio-5.8.0-py3-none-any.whl",
+]

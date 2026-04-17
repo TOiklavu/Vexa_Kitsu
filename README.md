@@ -1,2 +1,2 @@
-# Vexa_Kitsu
-
+# Blender Kitsu
+blender-kitsu is an add-on to interact with Kitsu from within Blender. It also has features that are not directly related to Kitsu but support certain aspects of the Blender Studio Pipeline. You can find the documentation [here](https://studio.blender.org/tools/addons/blender_kitsu).
