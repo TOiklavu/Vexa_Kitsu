@@ -164,7 +164,7 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
 
     host: bpy.props.StringProperty(  # type: ignore
         name="Host",
-        default="",
+        default="https://kitsu.vexa.studio",
     )
 
     email: bpy.props.StringProperty(  # type: ignore
@@ -276,7 +276,7 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
             "In this directory blender kitsu searches for the svn/ & shared/ directories"
             "Directory should follow `you_project_name/` format without any subdirectories"
         ),
-        default="E:/data/gold/",
+        default="A:/Project/",
         subtype="DIR_PATH",
     )
     config_dir: bpy.props.StringProperty(  # type: ignore
