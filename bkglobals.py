@@ -28,7 +28,7 @@ ASSET_TYPE_MAPPING = {
     "libs": "Library",
     "lgt": "Lighting",
     "props": "Prop",
-    "sets": "Environment",
+    "environments": "Environment",
 }
 
 SEQ_TASK_MAPPING = {
