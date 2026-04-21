@@ -11,6 +11,7 @@ VERSION_PATTERN = r"v\d\d\d"
 # Naming Conventions Set by https://studio.blender.org/tools/naming-conventions/introduction
 DELIMITER = "_"  # Seperates items (e.g."{shot_name}-{shot_task}"")
 SPACE_REPLACER = "_"  # Represents spaces in a single item (e.g. "my shot name" = "my_shot_name")
+YEAR = "2026_"
 
 ASSET_TASK_MAPPING = {
     "geometry": "Geometry",

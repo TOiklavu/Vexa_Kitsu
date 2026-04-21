@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional, Union, Tuple, TypeVar
 from pathlib import Path
 import gazu
 from .logger import LoggerFactory
-from . import bkglobals, prefs, util
+from . import bkglobals, prefs, util, cache
 from .models import FileListModel
 import mimetypes
 import bpy
@@ -636,8 +636,9 @@ class Shot(Entity):
 
     def get_dir(self, context) -> str:
         project_root_dir = prefs.project_root_dir_get(context)
+        active_project = cache.project_active_get()
         #Vuna đã sửa
-        all_shots_dir = project_root_dir.joinpath('4. SEQUENCES')
+        all_shots_dir = project_root_dir.joinpath(bkglobals.YEAR + str(active_project.name)).joinpath('4. SEQUENCES')
         return str(self.get_shot_folder_tree(all_shots_dir))
 
     def get_filepath(self, context, task_type_short_name: str) -> str:
@@ -778,10 +779,12 @@ class Asset(Entity):
         return folder_name
 
     def get_dir(self, context) -> Path:
+        active_project = cache.project_active_get()
         project_root_dir = prefs.project_root_dir_get(context)
         return (
             #Vuna đã sửa
             project_root_dir.joinpath('')
+            .joinpath(bkglobals.YEAR + str(active_project.name))
             .joinpath('3. ASSETS')
             .joinpath(self.get_asset_folder_name())
             .joinpath(self.name)
