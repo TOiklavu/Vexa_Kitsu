@@ -650,7 +650,6 @@ class Shot(Entity):
         playblsat_dir = addon_prefs.shot_playblast_root_dir
         shot_dir = self.get_shot_folder_tree(Path(playblsat_dir))
         task_dir = shot_dir.joinpath(self.name + bkglobals.DELIMITER + task_type_short_name)
-        task_dir = playblsat_dir
         return task_dir.__str__()
 
     def get_latest_playblast_file(self, context, task_type_short_name: str):
@@ -1436,8 +1435,9 @@ class Edit(Entity):
         return
 
     def get_dir(self, context) -> str:
+        active_project = cache.project_active_get()
         project_root_dir = prefs.project_root_dir_get(context)
-        return project_root_dir.joinpath('edit')
+        return project_root_dir.joinpath(bkglobals.YEAR + str(active_project.name)).joinpath('7. DAVINCI')
 
     def get_filepath(self, context) -> str:
         dir = Path(self.get_dir(context))

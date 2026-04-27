@@ -499,7 +499,7 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
     edit_dir_name: bpy.props.StringProperty(
         name="Edit Directory Name",
         description="Name of the edit directory",
-        default="edit"
+        default="5. FOOTAGES"
     )
 
     shot_name_filter: bpy.props.StringProperty(  # type: ignore
