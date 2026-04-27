@@ -110,22 +110,30 @@ def get_playblast_dir(self: Any) -> str:
 
     # Start building path
     if context_core.is_sequence_context():
-        playblast_dir = addon_prefs.seq_playblast_root_path
+        playblast_dir = addon_prefs.seq_playblast_root_dir
     else:
-        playblast_dir = addon_prefs.shot_playblast_root_path
+        playblast_dir = addon_prefs.shot_playblast_root_dir
 
-    playblast_dir = set_episode_variable(playblast_dir)
+#    playblast_dir = set_episode_variable(playblast_dir)
 
-    if context_core.is_sequence_context():
-        playblast_dir = playblast_dir / sequence.name / 'sequence_previews'
-        return playblast_dir.as_posix()
+#    if context_core.is_sequence_context():
+#        playblast_dir = playblast_dir / sequence.name / 'sequence_previews'
+#        return playblast_dir.as_posix()
 
     task_type_name_suffix = get_task_type_name_file_suffix()
 
     entity_name = shot.name if context_core.is_shot_context() else asset.name
 
+    project_root_dir = Path(prefs.project_root_dir_get(bpy.context))
+    active_project = cache.project_active_get()
+    project_name = bkglobals.YEAR + str(active_project.name)
+
     playblast_dir = (
-        playblast_dir
+        project_root_dir
+        / project_name
+        / playblast_dir
+        / sequence.name
+        / entity_name
         / f"{entity_name}{delimiter}{task_type_name_suffix}"
     )
     return playblast_dir.as_posix()

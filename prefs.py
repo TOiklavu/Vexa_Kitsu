@@ -215,7 +215,7 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
     shot_playblast_root_dir: bpy.props.StringProperty(  # type: ignore
         name="Shot Playblasts",
         description="Directory path to shot playblast root folder. Should point to: {project}/editorial/footage/pro",
-        default="//playblast",
+        default="5. FOOTAGES",
         subtype="DIR_PATH",
         update=init_playblast_file_model,
         get=get_shot_playblast_root_dir,
