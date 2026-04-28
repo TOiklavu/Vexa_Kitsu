@@ -114,11 +114,11 @@ def get_playblast_dir(self: Any) -> str:
     else:
         playblast_dir = addon_prefs.shot_playblast_root_dir
 
-#    playblast_dir = set_episode_variable(playblast_dir)
+    playblast_dir = set_episode_variable(playblast_dir)
 
-#    if context_core.is_sequence_context():
-#        playblast_dir = playblast_dir / sequence.name / 'sequence_previews'
-#        return playblast_dir.as_posix()
+    if context_core.is_sequence_context():
+        playblast_dir = playblast_dir / sequence.name / 'sequence_previews'
+        return playblast_dir.as_posix()
 
     task_type_name_suffix = get_task_type_name_file_suffix()
 

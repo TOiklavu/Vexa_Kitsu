@@ -646,11 +646,20 @@ class Shot(Entity):
         return Path(self.get_dir(context)).joinpath(file_name).__str__()
 
     def get_playblast_dir(self, context, task_type_short_name: str) -> str:
+        project_root_dir = Path(prefs.project_root_dir_get(bpy.context))
+        active_project = cache.project_active_get()
+        project_name = bkglobals.YEAR + str(active_project.name)
+
         addon_prefs = prefs.addon_prefs_get(context)
         playblsat_dir = addon_prefs.shot_playblast_root_dir
         shot_dir = self.get_shot_folder_tree(Path(playblsat_dir))
         task_dir = shot_dir.joinpath(self.name + bkglobals.DELIMITER + task_type_short_name)
+
+        task_dir = project_root_dir.joinpath(project_name).joinpath(task_dir)
+
+        print(f"DEBUG: Path found is {task_dir}")
         return task_dir.__str__()
+        
 
     def get_latest_playblast_file(self, context, task_type_short_name: str):
         filemodel = FileListModel()

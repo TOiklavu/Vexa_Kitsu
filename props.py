@@ -612,7 +612,7 @@ class KITSU_property_group_scene(bpy.types.PropertyGroup):
     playblast_dir: bpy.props.StringProperty(  # type: ignore
         name="Playblast Directory",
         description="Directory in which playblasts will be saved",
-        default="//playblast",
+        default="",
         subtype="DIR_PATH",
         get=propsdata.get_playblast_dir,
     )

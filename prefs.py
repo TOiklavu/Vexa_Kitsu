@@ -387,11 +387,13 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
     ) -> str:
         path = get_safely_string_prop(self.bl_system_properties_get(), 'edit_export_dir')
         active_project = cache.project_active_get()
+        project_name = bkglobals.YEAR + str(active_project.name)
+        
         if path == "" and self.project_root_path:
             if active_project.production_type == bkglobals.KITSU_TV_PROJECT:
                 dir = self.project_root_path.joinpath("shared/editorial/export/<episode>/")
             else:
-                dir = self.project_root_path.joinpath("shared/editorial/export/")
+                dir = self.project_root_path.joinpath(project_name).joinpath("9. EXPORTS")
             return dir.as_posix()
         return path
 
@@ -499,7 +501,7 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
     edit_dir_name: bpy.props.StringProperty(
         name="Edit Directory Name",
         description="Name of the edit directory",
-        default="5. FOOTAGES"
+        default="7. DAVINCI"
     )
 
     shot_name_filter: bpy.props.StringProperty(  # type: ignore
