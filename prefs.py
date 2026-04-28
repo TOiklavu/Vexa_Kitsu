@@ -276,7 +276,7 @@ class KITSU_addon_preferences(bpy.types.AddonPreferences):
             "In this directory blender kitsu searches for the svn/ & shared/ directories"
             "Directory should follow `you_project_name/` format without any subdirectories"
         ),
-        default="A:/",
+        default="G:/My Drive",
         subtype="DIR_PATH",
     )
     config_dir: bpy.props.StringProperty(  # type: ignore
